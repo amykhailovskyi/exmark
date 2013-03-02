@@ -253,6 +253,22 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="static\blocks\bootstrap\bootstrap.css" />
+    <Content Include="static\blocks\bootstrap\bootstrap.js" />
+    <Content Include="static\blocks\bootstrap\glyphicons-halflings-white.png" />
+    <Content Include="static\blocks\bootstrap\glyphicons-halflings.png" />
+    <Content Include="static\blocks\page\page.css" />
+    <Content Include="static\blocks\page\user.png" />
+    <Content Include="static\pages\dashboard\dashboard.css" />
+    <Content Include="static\pages\dashboard\dashboard.html" />
+    <Content Include="static\pages\index\index.css" />
+    <Content Include="static\pages\index\index.html" />
+    <Content Include="static\pages\login\login.css" />
+    <Content Include="static\pages\login\login.html" />
+    <Content Include="static\pages\messages\messages.css" />
+    <Content Include="static\pages\messages\messages.html" />
+    <Content Include="static\pages\profile\profile.css" />
+    <Content Include="static\pages\profile\profile.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
