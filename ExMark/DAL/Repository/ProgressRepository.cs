@@ -80,7 +80,8 @@ namespace DAL.Repository
                 new Progress { Id = 10, SheduleId = 12, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25) },
                 new Progress { Id = 11, SheduleId = 16, StudentId = 1, Mark = 3, Date = new DateTime(2013, 2, 25) },
                 new Progress { Id = 12, SheduleId = 17, StudentId = 1, Mark = 4, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 13, SheduleId = 18, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25) }
+                new Progress { Id = 13, SheduleId = 18, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25) },
+                new Progress { Id = 13, SheduleId = 18, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 26) }
             };
         }
 
