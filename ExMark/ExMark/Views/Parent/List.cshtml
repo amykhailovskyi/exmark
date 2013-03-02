@@ -1,16 +1,19 @@
-﻿@model List<DAL.Models.Progress>
+﻿@using DAL.Repository
+@model List<DAL.Models.Progress>
 
 @{
     ViewBag.Title = "List";
     Layout = null;
+    string[] days = { "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat" };
+    var minDay = Model.Where(x => x.Date.DayOfWeek == DayOfWeek.Monday).Min(x =>x.Date);
 }
 
 <table class='table table-bordered em-schedule'>
                     <thead>
                         <tr>
-                            @foreach (var item in Model.Distinct().Select(x => x.Date))
+                            @for (int i = 0; i < days.Count(); i++)
                             {
-                                 <th>@item.Date.DayOfWeek <span>@item.Date.Date</span></th>
+                                 <th>@days[i] <span>@minDay.Date.AddDays(i).ToShortDateString()</span></th>
                             }
 
                         </tr>
@@ -22,113 +25,36 @@
                                     <a href='#'>
                                         <i class='icon-chevron-left pull-left'></i>
                                     </a>
-                                    <span>01.03.2013 - 06.03.2013</span>
+                                    <span>25.02.2013 - 02.03.2013</span>
                                     <a href='#'>
                                         <i class='icon-chevron-right pull-right'></i>
                                     </a>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Economics</div>
-                                <div class='em-mark'>absent</div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Economics</div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>English: Communications</div>
-                                <div class='em-mark'>80</div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>English: Grammar</div>
-                                <div class='em-mark'>90</div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Science</div>
-                                <div class='em-mark'>absent</div>
-                            </td>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Economics</div>
-                                <div class='em-mark'>95</div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Mathematics</div>
-                                <div class='em-mark'>89</div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>English: Grammar</div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>English: Literature</div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Social Studies</div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>English: Literature</div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td></td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Social Studies</div>
-                                <div class='em-mark'>absent</div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Social Studies</div>
-                                <div class='em-mark'>87</div>
-                            </td>
-                            <td class='em-schedule-item'>
-                                <div class='em-title'>Mathematics</div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                            <td>
-                                <div class='em-title'></div>
-                                <div class='em-mark'></div>
-                            </td>
-                        </tr>
+                        @for (int i = 1; i <=7; i++)
+                        {
+                            <tr>
+                                @for (int j = 0; j < days.Count(); j++)
+                                {
+                                    var a = Model.FirstOrDefault(x => x.Date == minDay.Date.AddDays(j) && x.Schedule.SubjectOrder == i);
+                                    if (Model.FirstOrDefault(x => x.Date == minDay.Date.AddDays(j) && x.Schedule.SubjectOrder == i) != null)
+                                    {
+                                        <td class='em-schedule-item'>
+                                            <div class='em-title'>@a.Schedule.Subject.Name</div>
+                                            <div class='em-mark'>@(a.Mark == -1 ? "absent" : a.Mark.ToString())</div>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <div class='em-title'></div>
+                                            <div class='em-mark'></div>
+                                        </td>
+                                    }
+                                } 
+                            </tr>
+                        }
+                        
                     </tbody>
                 </table>

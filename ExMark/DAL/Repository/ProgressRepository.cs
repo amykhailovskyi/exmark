@@ -11,7 +11,8 @@ namespace DAL.Repository
     public class ProgressRepository : IEntity<Progress>
     {
         private ExMarkDB context = new ExMarkDB();
-
+        StudentRepository repository = new StudentRepository();
+        ScheduleRepository ScheduleRepository = new ScheduleRepository();
         public List<Progress> Items
         {
             get
@@ -68,20 +69,11 @@ namespace DAL.Repository
             //return Items.ToList();
             return new List<Progress>
             {
-                new Progress { Id = 1, SheduleId = 1, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 2, SheduleId = 2, StudentId = 1, Mark = 3, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 3, SheduleId = 3, StudentId = 1, Mark = -1, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 4, SheduleId = 4, StudentId = 1, Mark = 3, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 5, SheduleId = 5, StudentId = 1, Mark = -1, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 6, SheduleId = 6, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 7, SheduleId = 8, StudentId = 1, Mark = 4, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 8, SheduleId = 10, StudentId = 1, Mark = 4, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 9, SheduleId = 11, StudentId = 1, Mark = -1, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 10, SheduleId = 12, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 11, SheduleId = 16, StudentId = 1, Mark = 3, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 12, SheduleId = 17, StudentId = 1, Mark = 4, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 13, SheduleId = 18, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25) },
-                new Progress { Id = 13, SheduleId = 18, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 26) }
+                new Progress { Id = 1, SheduleId = 1, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25), Student = repository.GetById(1), Schedule = ScheduleRepository.GetById(1)},
+                new Progress { Id = 2, SheduleId = 2, StudentId = 1, Mark = 3, Date = new DateTime(2013, 2, 25) ,Student = repository.GetById(1), Schedule = ScheduleRepository.GetById(2)},
+                new Progress { Id = 3, SheduleId = 3, StudentId = 1, Mark = -1, Date = new DateTime(2013, 2, 25) ,Student = repository.GetById(1), Schedule = ScheduleRepository.GetById(3)},
+                new Progress { Id = 4, SheduleId = 3, StudentId = 1, Mark = -1, Date = new DateTime(2013, 2, 26) ,Student = repository.GetById(1), Schedule = ScheduleRepository.GetById(3)},
+                new Progress { Id = 13, SheduleId = 18, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 26) ,Student = repository.GetById(1), Schedule = ScheduleRepository.GetById(18)}
             };
         }
 
@@ -92,7 +84,7 @@ namespace DAL.Repository
         
         public List<Progress> Load(int? id, DateTime? date)
         {
-            return GetAll().Where(r => r.Date == new DateTime(2013, 2, 25) && r.StudentId == id).ToList();
+            return GetAll().Where(r => r.Date >= new DateTime(2013, 2, 25) && r.StudentId == id).ToList();
         }
     }
 }

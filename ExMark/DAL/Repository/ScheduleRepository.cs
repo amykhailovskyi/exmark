@@ -10,6 +10,7 @@ namespace DAL.Repository
     public class ScheduleRepository : IEntity<Schedule>
     {
         List<Schedule> schedules = new List<Schedule>();
+        SubjectRepository SubjectRepository = new SubjectRepository();
 
         public List<Schedule> GetAll()
         {
@@ -51,7 +52,9 @@ namespace DAL.Repository
 
         public Schedule GetById(int id)
         {
-            return GetAll().FirstOrDefault(x => x.Id == id);
+            var s = GetAll().FirstOrDefault(x => x.Id == id);
+            s.Subject = SubjectRepository.GetById(s.SubjectId);
+                return s;
         } 
     }
 }
