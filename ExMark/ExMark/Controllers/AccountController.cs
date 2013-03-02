@@ -36,6 +36,17 @@ namespace ExMark.Controllers
             if (ModelState.IsValid && ValidateUser(model.UserName))
             {
                 FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                if (string.IsNullOrEmpty(returnUrl))
+                {
+                    if (model.UserName.ToLower() == "parent")
+                    {
+                        return RedirectToAction("Index", "Parent", new { id = 1 });
+                    }
+                    else if (model.UserName.ToLower() == "admin")
+                    {
+                        return RedirectToAction("ProgressEdit", "Admin", new { date = new DateTime(2013, 2, 15) });
+                    }
+                }
                 return RedirectToLocal(returnUrl);
             }
 
@@ -45,9 +56,9 @@ namespace ExMark.Controllers
 
         private bool ValidateUser(string name)
         {
-            switch (name)
+            switch (name.ToLower())
             {
-                case "student":
+                case "admin":
                 case "parent":
                     return true;
 
@@ -59,8 +70,6 @@ namespace ExMark.Controllers
         //
         // POST: /Account/LogOff
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
