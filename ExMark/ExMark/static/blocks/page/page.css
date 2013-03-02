@@ -5,8 +5,8 @@
 
 hr.green
 {
-    height: 10px;
-    background: #55a51c;
+    /*height: 10px;
+    background: #55a51c;*/
 }
 
 .nav li a
@@ -29,6 +29,10 @@ hr.green
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
     box-shadow: 0 1px 2px rgba(0,0,0,.05);    
+}
+
+.em-logoutlink {
+	margin-top:5px!important;
 }
 
 .jumbotron
@@ -105,7 +109,45 @@ table.em-schedule .em-date-row td
 	border-radius: 5px;
 }
 
+.em-msg-indicator {
+	position:relative
+}
+.em-msg-indicator span {
+	position: absolute;
+	top: -8px;
+	right: -2px;
+}
+
+.em-header-userinfo {
+	padding: 8px 12px;
+	margin: 2px;
+	display:inline-block;
+}
 
 .validation-summary-errors {
     color: red;
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
+	background-color: #55a51c!important;
+}
+
+.masthead {
+	overflow:hidden;
+}
+.muted {
+	float:left;
+	margin-right:50px;
+}
+.em-main-menu {
+	list-style:none;
+	margin-top:90px;
+}
+.em-main-menu li {
+	padding:0 15px;
+	float:left;
+}
+.em-main-menu a{
+	font-size:20px;
+	font-family:Verdana;
 }

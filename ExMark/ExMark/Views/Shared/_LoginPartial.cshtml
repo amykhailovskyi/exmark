@@ -3,20 +3,15 @@
     {
         <text>
 
-        <li>Welcome, <a href='../profile/profile.html'>@User.Identity.Name</a>
-        </li>
-        <li class='active'>
+        <li><span class="em-header-userinfo">Welcome, <b>@User.Identity.Name</b></span></li>
+        @*<li class='active'>
             <a href='../dashboard/dashboard.html'>Dashboard</a>
         </li>
         <li>
             <a href='../messages/messages.html'>Messages <span class='badge badge-important'>3</span></a>
-        </li>
+        </li>*@
         <li>
-            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "em-logout-form" }))
-            {
-                @Html.AntiForgeryToken()
-                <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
-            }
+            <a href="@Url.Action("LogOff", "Account")">Logout</a>
         </li>
 
         </text>
