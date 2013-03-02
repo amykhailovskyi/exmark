@@ -1,0 +1,93 @@
+.page__title
+{
+    text-align: center;
+}
+
+hr.green
+{
+    height: 10px;
+    background: #55a51c;
+}
+
+.nav li a
+{
+    display: inline-block;
+}
+
+.login
+{
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 50px auto 50px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);    
+}
+
+.jumbotron
+{
+    text-align: center;
+}
+
+.jumbotron__title
+{
+    font-size: 72px;
+    line-height: 1;
+}
+
+table.em-schedule td 
+{
+    background:#eee;
+    text-align:center;
+    width:17%;
+    height:60px;
+}
+
+table.em-schedule th
+{
+    text-align:center;
+    background:#55a51c;
+    color:#fff;
+}
+
+table.em-schedule th span
+{
+    display:block;
+    font-weight:normal!important;
+}
+
+table.em-schedule .em-date-row td
+{
+    background:#fff;
+    height:20px;
+    border-bottom:2px solid #55a51c;
+}
+
+.table.em-schedule .em-date-picker 
+{
+    width:400px;
+    margin:0 auto;
+}
+
+.em-schedule-item 
+{
+    background:#fff!important;
+}
+
+.em-schedule-item .em-title 
+{
+    height:40px;
+}
+
+.em-schedule-item .em-mark 
+{
+    height:20px;
+    font-weight:bold;
+}
