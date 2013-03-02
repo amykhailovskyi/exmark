@@ -10,6 +10,7 @@ namespace ExMark.Models
 {
     public class StudentViewModel
     {
+		public int test { get; set; }
         public Student Student { get; set; }
         public Univercity Univercity { get; set; }
         public Faculty Faculty { get; set; }
