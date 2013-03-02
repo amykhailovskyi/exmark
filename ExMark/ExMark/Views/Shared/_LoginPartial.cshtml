@@ -12,7 +12,7 @@
             <a href='../messages/messages.html'>Messages <span class='badge badge-important'>3</span></a>
         </li>
         <li>
-            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "em-logout-form" }))
             {
                 @Html.AntiForgeryToken()
                 <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
