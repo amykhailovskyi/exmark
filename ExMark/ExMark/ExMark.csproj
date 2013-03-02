@@ -171,7 +171,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParentController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -303,7 +302,9 @@
     <Content Include="Views\Student\StudentProfile.cshtml" />
     <Content Include="Views\Admin\ProgressEdit.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Filters\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
