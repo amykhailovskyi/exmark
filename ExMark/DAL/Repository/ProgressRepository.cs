@@ -65,7 +65,7 @@ namespace DAL.Repository
 
         public List<Progress> GetAll()
         {
-            return Items.ToList();
+            //return Items.ToList();
             return new List<Progress>
             {
                 new Progress { Id = 1, SheduleId = 1, StudentId = 1, Mark = 5, Date = new DateTime(2013, 2, 25) },
@@ -87,6 +87,11 @@ namespace DAL.Repository
         public List<Progress> LoadByDate(DateTime date)
         {
             return GetAll().Where(r => r.Date == date).ToList();
+        }
+        
+        public List<Progress> Load(int? id, DateTime? date)
+        {
+            return GetAll().Where(r => r.Date == new DateTime(2013, 2, 25) && r.StudentId == id).ToList();
         }
     }
 }

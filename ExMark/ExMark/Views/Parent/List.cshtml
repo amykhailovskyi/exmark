@@ -1,0 +1,134 @@
+﻿@model List<DAL.Models.Progress>
+
+@{
+    ViewBag.Title = "List";
+    Layout = null;
+}
+
+<table class='table table-bordered em-schedule'>
+                    <thead>
+                        <tr>
+                            @foreach (var item in Model.Distinct().Select(x => x.Date))
+                            {
+                                 <th>@item.Date.DayOfWeek <span>@item.Date.Date</span></th>
+                            }
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='em-date-row'>
+                            <td colspan='6'>
+                                <div class='em-date-picker'>
+                                    <a href='#'>
+                                        <i class='icon-chevron-left pull-left'></i>
+                                    </a>
+                                    <span>01.03.2013 - 06.03.2013</span>
+                                    <a href='#'>
+                                        <i class='icon-chevron-right pull-right'></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Economics</div>
+                                <div class='em-mark'>absent</div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Economics</div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>English: Communications</div>
+                                <div class='em-mark'>80</div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>English: Grammar</div>
+                                <div class='em-mark'>90</div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Science</div>
+                                <div class='em-mark'>absent</div>
+                            </td>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Economics</div>
+                                <div class='em-mark'>95</div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Mathematics</div>
+                                <div class='em-mark'>89</div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>English: Grammar</div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>English: Literature</div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Social Studies</div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>English: Literature</div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td></td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Social Studies</div>
+                                <div class='em-mark'>absent</div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Social Studies</div>
+                                <div class='em-mark'>87</div>
+                            </td>
+                            <td class='em-schedule-item'>
+                                <div class='em-title'>Mathematics</div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                            <td>
+                                <div class='em-title'></div>
+                                <div class='em-mark'></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
