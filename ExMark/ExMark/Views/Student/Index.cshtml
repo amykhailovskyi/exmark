@@ -1,0 +1,11 @@
+﻿@model List<DAL.Models.Student>
+
+@foreach (var s in Model)
+{
+    @Html.TextBoxFor(x => s.FirstName)   
+    @Html.TextBoxFor(x => s.LastName)   
+    
+    
+        Html.RenderAction("GetStudentProfile", new { id = s.Id });
+    
+}
